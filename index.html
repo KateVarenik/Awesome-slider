@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Awesome slider</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="hero">
+		<div class="navbar">
+			<img src="Img/logo.png" alt="" class="logo">
+			<div class="user">
+				<button type="button">Explore</button>
+				<img src="Img/user.png" alt="">
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="info">
+				<h1>DISCOVER</h1>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Placeat, molestiae.<br> Expedita vero laborum inventore, ad repellat consectetur aliquid!</p>
+				<input type="text" placeholder="Search">
+			</div>
+		</div>
+
+		<div class="slider">
+			<img src="Img/left-arrow.png" alt="" id="prev">
+			<div class="preview">
+				<img src="Img/small1.png" class="active thumbnail">
+				<img src="Img/small2.png" class="thumbnail">
+				<img src="Img/small3.png" class="thumbnail">
+				<img src="Img/small4.png" class="thumbnail">
+				<img src="Img/small5.png" class="thumbnail">
+			</div>
+			<img src="Img/right-arrow.png" alt="" id="next">
+		</div>
+	</div>
+	
+<script type="text/javascript">
+
+	var prev = document.getElementById("prev");
+	var next = document.getElementById("next");
+	var thumbnail = document.getElementsByClassName("thumbnail");
+	var hero = document.getElementById("hero");
+
+	var backgroundImg = new Array(
+		"Img/bg1.png",
+		"Img/bg2.png",
+		"Img/bg3.png",
+		"Img/bg4.png",
+		"Img/bg5.png",
+		);
+	let i = 0;
+	next.onclick = function(){
+
+		if(i < 4){
+			hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+			thumbnail[i+1].classList.add("active");
+			thumbnail[i].classList.remove("active");
+			i++;
+		}
+	}
+
+	prev.onclick = function(){
+
+		if(i > 0){
+			hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+			thumbnail[i-1].classList.add("active");
+			thumbnail[i].classList.remove("active");
+			i--;
+		}
+	}
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
